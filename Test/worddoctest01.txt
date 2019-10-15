@@ -13,3 +13,18 @@ adding a table
 4
 
 Written 20191015 19:08
+
+superecript 23
+subscript 23
+
+tab numbering
+    1. erjhhvgakaldf
+    2. aksjfgbkdfj
+    3. askdjvbfkdf
+    4. skdjvbk
+    5. akdfbgvk
+
+change of font 
+this font has changed
+written 20191015 19:13
+

@@ -9,3 +9,5 @@ For example: after Sprint 1 the whole document will be updated and saved as spri
 The sprint plan is loosely based on the Agile methodology. So it is expected that the next planned sprint will change and require updating.
 
 The sprint plans references the moscow document, which can be found in the Moscow Analysis Folder.
+
+20191027 Sprint V01 has been completed. Sprint documentation has been updated.

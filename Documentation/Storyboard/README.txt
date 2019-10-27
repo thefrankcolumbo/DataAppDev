@@ -1,6 +1,8 @@
 Storyboard readme
 change log
 
+20191027 folling creation of ERD it was discovered that the latest storyboard version required updating to meet the requirements of the assignment
+
 20191027 added storyboard for admin user.
 
 20191023 add storyboard for User Visit there is local storage data. saved as storyboard v03.pdf

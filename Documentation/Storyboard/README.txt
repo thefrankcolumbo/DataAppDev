@@ -1,6 +1,8 @@
 Storyboard readme
 change log
 
+20191027 added storyboard for admin user.
+
 20191023 add storyboard for User Visit there is local storage data. saved as storyboard v03.pdf
 
 20191021 storyboard modified following peer review - saved as storyboard v02

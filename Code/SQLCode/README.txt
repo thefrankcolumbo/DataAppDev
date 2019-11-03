@@ -13,7 +13,7 @@ middleware - message recieved from client
 7. (C#) call (SQL) add to basket [dbo].[AddToBasket]
 8. (C#) record success/failure
 9. (C#) IF more products ordered GOTO 3. ELSE GOTO 10.
-10. (C#) send message back to client
+10. (C#) send message back to client ##UPDATED## (SQL) [dbo].[GetBasket]
 
 20191031 Uploaded SQL Stored Procedures / Functions (Names are self explanitory):
 	AddNewProductAllDetails.sql

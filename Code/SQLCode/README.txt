@@ -1,5 +1,8 @@
 SQL Code README file
 
+20191103 UPLOAD SQL View to enable S.1.2.4.2 admin – presents report of what item needs ordering
+[dbo].[ViewAllProductsBelowMinimumStockLevels]
+
 20191103 Uploaded SQL Stored Procedures / Functions to enable M.1.1.3	customer – add to current order and S.1.1.8 customer – can remove items from order. Below is psudo code for the whole process:
 Client side - message sent requested to add to order
 Middleware - message recived from client

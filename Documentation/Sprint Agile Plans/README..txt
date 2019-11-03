@@ -10,4 +10,6 @@ The sprint plan is loosely based on the Agile methodology. So it is expected tha
 
 The sprint plans references the moscow document, which can be found in the Moscow Analysis Folder.
 
+20191103 Extensive changes to sprint plans
+
 20191027 Sprint V01 has been completed. Sprint documentation has been updated.

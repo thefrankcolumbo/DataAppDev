@@ -1,5 +1,7 @@
 SQL Code README file
 
+20191103 created a number of views to replace stored procedures
+
 20191103 UPLOAD SQL View to enable S.1.2.4.2 admin – presents report of what item needs ordering
 [dbo].[ViewAllProductsBelowMinimumStockLevels]
 

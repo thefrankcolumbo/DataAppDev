@@ -15,6 +15,7 @@ namespace AdminGUI
       public AdminView()
       {
          InitializeComponent();
+         getOpenOrders();
       }
 
       private void btnWithdrawAddProductForSale_Click(object sender, MouseEventArgs e)
@@ -68,6 +69,9 @@ namespace AdminGUI
       private void enableSearchPanel()
       {
          pnlSearchPanel.Visible = true;
+         lblSearchTitleLabel.Visible = true;
+         MessageBox.Show("MUST ADD CODE ENABLE SEARCH AND FILL LIST BOX. ON USER " +
+            "SELECTION PRODUCT DETAILS MUST APPEAR ON OTHER PANEL");
       }
       private void resetToStartPage()
       {
@@ -83,6 +87,9 @@ namespace AdminGUI
          lblMainAdminView.Text = "Current Stock Levels";
          pnlSearchPanel.Visible = false;
          pnlSearchPanel.Visible = false;
+         listVCurrentOpenOrders.Visible = true;
+         lblSearchTitleLabel.Visible = false;
+         listVCurrentOpenOrders.Visible = false;
       }
       private void hideMenuButtons(String mainAdminViewlbl)
       {
@@ -96,6 +103,29 @@ namespace AdminGUI
          btnViewProductsNotForSale.Visible = false;
          btnViewStockLevels.Visible = false;
          lblMainAdminView.Text = mainAdminViewlbl;
+         listVCurrentOpenOrders.Visible = false;
+         listVCurrentOpenOrders.Visible = false;
+      }
+
+      private void txtSearchPanelProductID_TextChange(object sender, EventArgs e)
+      {
+
+      }
+
+      private void txtSearchPanelProductName_TextChange(object sender, EventArgs e)
+      {
+
+      }
+      private void getOpenOrders()
+      {
+         listVCurrentOpenOrders.Items.Add("code needed");
+         listVCurrentOpenOrders.Items.Add("to make");
+         listVCurrentOpenOrders.Items.Add("this into");
+         listVCurrentOpenOrders.Items.Add("a list ");
+         listVCurrentOpenOrders.Items.Add("of open");
+         listVCurrentOpenOrders.Items.Add("orders. make");
+         listVCurrentOpenOrders.Items.Add("this an");
+         listVCurrentOpenOrders.Items.Add("async call");
       }
    }
 }

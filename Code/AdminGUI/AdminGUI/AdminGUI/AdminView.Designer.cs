@@ -38,6 +38,14 @@
          this.pnlMainAdminView = new System.Windows.Forms.Panel();
          this.lblMainAdminView = new System.Windows.Forms.Label();
          this.btnStartPage = new System.Windows.Forms.Button();
+         this.pnlSearchPanel = new System.Windows.Forms.Panel();
+         this.lblSearchTitleLabel = new System.Windows.Forms.Label();
+         this.lblSearchPanelProductID = new System.Windows.Forms.Label();
+         this.txtSearchPanelProductID = new System.Windows.Forms.TextBox();
+         this.lblSearchPanelProductName = new System.Windows.Forms.Label();
+         this.txtSearchPanelProductName = new System.Windows.Forms.TextBox();
+         this.listBoxSearchPanel = new System.Windows.Forms.ListBox();
+         this.pnlSearchPanel.SuspendLayout();
          this.SuspendLayout();
          // 
          // btnWithdrawAddProductForSale
@@ -139,11 +147,76 @@
          this.btnStartPage.Visible = false;
          this.btnStartPage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnStartPage_Click);
          // 
+         // pnlSearchPanel
+         // 
+         this.pnlSearchPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+         this.pnlSearchPanel.Controls.Add(this.listBoxSearchPanel);
+         this.pnlSearchPanel.Controls.Add(this.txtSearchPanelProductName);
+         this.pnlSearchPanel.Controls.Add(this.lblSearchPanelProductName);
+         this.pnlSearchPanel.Controls.Add(this.txtSearchPanelProductID);
+         this.pnlSearchPanel.Controls.Add(this.lblSearchPanelProductID);
+         this.pnlSearchPanel.Controls.Add(this.lblSearchTitleLabel);
+         this.pnlSearchPanel.Location = new System.Drawing.Point(13, 252);
+         this.pnlSearchPanel.Name = "pnlSearchPanel";
+         this.pnlSearchPanel.Size = new System.Drawing.Size(186, 264);
+         this.pnlSearchPanel.TabIndex = 10;
+         this.pnlSearchPanel.Visible = false;
+         // 
+         // lblSearchTitleLabel
+         // 
+         this.lblSearchTitleLabel.AutoSize = true;
+         this.lblSearchTitleLabel.Location = new System.Drawing.Point(121, 0);
+         this.lblSearchTitleLabel.Name = "lblSearchTitleLabel";
+         this.lblSearchTitleLabel.Size = new System.Drawing.Size(62, 13);
+         this.lblSearchTitleLabel.TabIndex = 0;
+         this.lblSearchTitleLabel.Text = "Search Box";
+         // 
+         // lblSearchPanelProductID
+         // 
+         this.lblSearchPanelProductID.AutoSize = true;
+         this.lblSearchPanelProductID.Location = new System.Drawing.Point(7, 21);
+         this.lblSearchPanelProductID.Name = "lblSearchPanelProductID";
+         this.lblSearchPanelProductID.Size = new System.Drawing.Size(58, 13);
+         this.lblSearchPanelProductID.TabIndex = 1;
+         this.lblSearchPanelProductID.Text = "Product ID";
+         // 
+         // txtSearchPanelProductID
+         // 
+         this.txtSearchPanelProductID.Location = new System.Drawing.Point(4, 38);
+         this.txtSearchPanelProductID.Name = "txtSearchPanelProductID";
+         this.txtSearchPanelProductID.Size = new System.Drawing.Size(179, 20);
+         this.txtSearchPanelProductID.TabIndex = 2;
+         // 
+         // lblSearchPanelProductName
+         // 
+         this.lblSearchPanelProductName.AutoSize = true;
+         this.lblSearchPanelProductName.Location = new System.Drawing.Point(4, 65);
+         this.lblSearchPanelProductName.Name = "lblSearchPanelProductName";
+         this.lblSearchPanelProductName.Size = new System.Drawing.Size(75, 13);
+         this.lblSearchPanelProductName.TabIndex = 3;
+         this.lblSearchPanelProductName.Text = "Product Name";
+         // 
+         // txtSearchPanelProductName
+         // 
+         this.txtSearchPanelProductName.Location = new System.Drawing.Point(4, 82);
+         this.txtSearchPanelProductName.Name = "txtSearchPanelProductName";
+         this.txtSearchPanelProductName.Size = new System.Drawing.Size(179, 20);
+         this.txtSearchPanelProductName.TabIndex = 4;
+         // 
+         // listBoxSearchPanel
+         // 
+         this.listBoxSearchPanel.FormattingEnabled = true;
+         this.listBoxSearchPanel.Location = new System.Drawing.Point(4, 109);
+         this.listBoxSearchPanel.Name = "listBoxSearchPanel";
+         this.listBoxSearchPanel.Size = new System.Drawing.Size(179, 147);
+         this.listBoxSearchPanel.TabIndex = 5;
+         // 
          // AdminView
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(898, 528);
+         this.Controls.Add(this.pnlSearchPanel);
          this.Controls.Add(this.btnStartPage);
          this.Controls.Add(this.lblMainAdminView);
          this.Controls.Add(this.pnlMainAdminView);
@@ -156,6 +229,8 @@
          this.Controls.Add(this.btnWithdrawAddProductForSale);
          this.Name = "AdminView";
          this.Text = "AdminView";
+         this.pnlSearchPanel.ResumeLayout(false);
+         this.pnlSearchPanel.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -173,5 +248,12 @@
       private System.Windows.Forms.Panel pnlMainAdminView;
       private System.Windows.Forms.Label lblMainAdminView;
       private System.Windows.Forms.Button btnStartPage;
+      private System.Windows.Forms.Panel pnlSearchPanel;
+      private System.Windows.Forms.Label lblSearchTitleLabel;
+      private System.Windows.Forms.ListBox listBoxSearchPanel;
+      private System.Windows.Forms.TextBox txtSearchPanelProductName;
+      private System.Windows.Forms.Label lblSearchPanelProductName;
+      private System.Windows.Forms.TextBox txtSearchPanelProductID;
+      private System.Windows.Forms.Label lblSearchPanelProductID;
    }
 }

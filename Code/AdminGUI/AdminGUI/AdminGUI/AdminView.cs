@@ -20,12 +20,14 @@ namespace AdminGUI
       private void btnWithdrawAddProductForSale_Click(object sender, MouseEventArgs e)
       {
          hideMenuButtons("withdraw a product from sale or make a product available for sale");
+         enableSearchPanel();
          MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
       }
 
       private void btnViewOrEditProductDetails_Click(object sender, MouseEventArgs e)
       {
          hideMenuButtons("view or edit product details");
+         enableSearchPanel();
          MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
       }
 
@@ -63,6 +65,10 @@ namespace AdminGUI
       {
          resetToStartPage();
       }
+      private void enableSearchPanel()
+      {
+         pnlSearchPanel.Visible = true;
+      }
       private void resetToStartPage()
       {
          btnStartPage.Visible = false;
@@ -75,6 +81,8 @@ namespace AdminGUI
          btnViewProductsNotForSale.Visible = true;
          btnViewStockLevels.Visible = true;
          lblMainAdminView.Text = "Current Stock Levels";
+         pnlSearchPanel.Visible = false;
+         pnlSearchPanel.Visible = false;
       }
       private void hideMenuButtons(String mainAdminViewlbl)
       {

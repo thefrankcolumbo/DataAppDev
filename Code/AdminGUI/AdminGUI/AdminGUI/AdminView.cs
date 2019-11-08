@@ -16,48 +16,81 @@ namespace AdminGUI
       {
          InitializeComponent();
          getOpenOrders();
+         setPnlViewingProductAllFieldsToReadOnly();
       }
 
       private void btnWithdrawAddProductForSale_Click(object sender, MouseEventArgs e)
       {
-         hideMenuButtons("withdraw a product from sale or make a product available for sale");
+         //1. change button / panel visability to suit required admin function
+         hideMenuButtons("Make a product for sale or not for sale");
+         //2. open the search panel
          enableSearchPanel();
-         MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
+         //3. admin has used search panel to select a product from the DB
+         MessageBox.Show("SEARCH PANEL FUNCTIONALITY REQUIRED WITH RETURN OBJECT");
+         //4. display product results in text boxes
+         setPnlViewingProductFieldsFromDatabase();
+         //5. set required text boxes to non read only
+         // not required
+         //6. set action button text
+         setPnlViewingProductActionBtnText("DEPENDS ON 0 or 1 ForSale");
+         //7. if action button press DB updated
+         MessageBox.Show("NEED TO CODE FOR BTN ACTION ON FOR SALE CHANGE");
       }
 
       private void btnViewOrEditProductDetails_Click(object sender, MouseEventArgs e)
       {
+         //1. change button / panel visability to suit required admin function
          hideMenuButtons("view or edit product details");
+         //2. open the search panel
          enableSearchPanel();
-         MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
+         //3. admin has used search panel to select a product from the DB
+         MessageBox.Show("SEARCH PANEL FUNCTIONALITY REQUIRED WITH RETURN OBJECT");
+         //4. display product results in text boxes
+         setPnlViewingProductFieldsFromDatabase();
+         //5. set action button text
+         setPnlViewingProductActionBtnText("Save changes");
+         //6. set required text boxes to non read only
+         setPnlViewingProductFieldToNonReadOnlyForProductEdit();
+         //7. if action button press DB updated
+         MessageBox.Show("NEED TO CODE FOR BTN ACTION ON FOR SALE CHANGE");
       }
 
       private void btnAddNewProductForSale_Click(object sender, MouseEventArgs e)
       {
+         //1. change button / panel visability to suit required admin function
          hideMenuButtons("add new product for sale");
-         MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
+         //2. set action button text
+         setPnlViewingProductActionBtnText("Save changes");
+         //3. set required text boxes to non read only
+         setPnlViewingProductFieldToNonReadOnlyForProductEdit();
+         //4. if action button press DB updated
+         MessageBox.Show("NEED TO CODE FOR BTN ACTION ON FOR SALE CHANGE");
       }
 
       private void btnViewStockLevels_Click(object sender, MouseEventArgs e)
       {
+         //1. change button / panel visability to suit required admin function
          hideMenuButtons("view currect stock levels");
          MessageBox.Show("MUST ADD CODE TO VIEW CURRENT STOCK LEVELS");
       }
 
       private void btnOrderStockReport_Click(object sender, MouseEventArgs e)
       {
+         //1. change button / panel visability to suit required admin function
          hideMenuButtons("list of products currently below the minimum stock number");
          MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
       }
 
       private void btnViewStockForSale_Click(object sender, MouseEventArgs e)
       {
+         //1. change button / panel visability to suit required admin function
          hideMenuButtons("view all products available for sale");
          MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
       }
 
       private void btnViewProductsNotForSale_Click(object sender, MouseEventArgs e)
       {
+         //1. change button / panel visability to suit required admin function
          hideMenuButtons("view all products not available for sale");
          MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
       }
@@ -89,7 +122,9 @@ namespace AdminGUI
          pnlSearchPanel.Visible = false;
          listVCurrentOpenOrders.Visible = true;
          lblSearchTitleLabel.Visible = false;
-         listVCurrentOpenOrders.Visible = false;
+         listVCurrentOpenOrders.Visible = true;
+         pnlViewingProduct.Visible = false;
+         setPnlViewingProductAllFieldsToReadOnly();
       }
       private void hideMenuButtons(String mainAdminViewlbl)
       {
@@ -104,9 +139,45 @@ namespace AdminGUI
          btnViewStockLevels.Visible = false;
          lblMainAdminView.Text = mainAdminViewlbl;
          listVCurrentOpenOrders.Visible = false;
-         listVCurrentOpenOrders.Visible = false;
       }
-
+      private void setPnlViewingProductAllFieldsToReadOnly()
+      {
+         txtViewingProductDescription.ReadOnly = true;
+         txtViewingProductForSale.ReadOnly = true;
+         txtViewingProductProductCategory.ReadOnly = true;
+         txtViewingProductProductMinStock.ReadOnly = true;
+         txtViewingProductProductName.ReadOnly = true;
+         txtViewingProductProductPrice.ReadOnly = true;
+         txtViewingProductProductStock.ReadOnly = true;
+         txtViewingProductProductID.ReadOnly = true;
+         txtViewingProductNumberSold.ReadOnly = true;
+      }
+      private void setPnlViewingProductActionBtnText(String btnText)
+      {
+         btnViewingProductActionButton.Text = btnText;
+      }
+      private void setPnlViewingProductFieldToNonReadOnlyForProductEdit()
+      {
+         txtViewingProductDescription.ReadOnly = false;
+         txtViewingProductForSale.ReadOnly = false;
+         txtViewingProductProductCategory.ReadOnly = false;
+         txtViewingProductProductMinStock.ReadOnly = false;
+         txtViewingProductProductName.ReadOnly = false;
+         txtViewingProductProductPrice.ReadOnly = false;
+         txtViewingProductProductStock.ReadOnly = false;
+      }
+      private void setPnlViewingProductFieldsFromDatabase()
+      {
+         txtViewingProductDescription.Text = "pulled from database";
+         txtViewingProductForSale.Text = "pulled from database";
+         txtViewingProductProductCategory.Text = "pulled from database";
+         txtViewingProductProductMinStock.Text = "pulled from database";
+         txtViewingProductProductName.Text = "pulled from database";
+         txtViewingProductProductPrice.Text = "pulled from database";
+         txtViewingProductProductStock.Text = "pulled from database";
+         txtViewingProductProductID.Text = "pulled from database";
+         txtViewingProductNumberSold.Text = "pulled from database";
+      }
       private void txtSearchPanelProductID_TextChange(object sender, EventArgs e)
       {
 
@@ -126,6 +197,16 @@ namespace AdminGUI
          listVCurrentOpenOrders.Items.Add("orders. make");
          listVCurrentOpenOrders.Items.Add("this an");
          listVCurrentOpenOrders.Items.Add("async call");
+      }
+
+      private void btnViewingProductActionButton_Click(object sender, EventArgs e)
+      {
+         resetToStartPage();
+      }
+
+      private void btnViewingProductCancelButton_Click(object sender, MouseEventArgs e)
+      {
+         resetToStartPage();
       }
    }
 }

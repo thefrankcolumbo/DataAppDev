@@ -7,33 +7,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
-
+//using static AdminGUI.ActionButtonENUM;
 
 namespace AdminGUI
 {
    public partial class AdminView : Form
    {
+      Controller controller;
       public AdminView()
       {
          InitializeComponent();
          getOpenOrders();
          resetToStartPage();
-         //using (SqlConnection conn = new SqlConnection("###"))
-         //{
-
-         //   conn.Open();
-         //   SqlCommand cmd = new SqlCommand("GetAllProductsForSale", conn);
-         //   cmd.CommandType = CommandType.StoredProcedure;
-         //   using (SqlDataReader rdr = cmd.ExecuteReader())
-         //   {
-         //      // iterate through results, printing each to console
-         //      while (rdr.Read())
-         //      {
-         //         Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["Name"], rdr["Id"]);
-         //      }
-         //   }
-         //}
+         controller = new Controller();
+         controller.testprocedure();
       }
 
       private void btnWithdrawAddProductForSale_Click(object sender, MouseEventArgs e)
@@ -85,7 +74,6 @@ namespace AdminGUI
          //5. show edit product panel
          pnlViewingProduct.Visible = true;
       }
-
       private void btnViewStockLevels_Click(object sender, MouseEventArgs e)
       {
          //1. change button / panel visability to suit required admin function
@@ -108,6 +96,8 @@ namespace AdminGUI
       {
          //1. change button / panel visability to suit required admin function
          hideMenuButtons("view all products available for sale");
+         List<List<string>> results = new List<List<string>>();
+         results = controller.viewStockForSale();
          MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
          getCurrentStockMarkedAsForSale();
          listVCurrentOpenOrders.Visible = true;
@@ -311,6 +301,10 @@ namespace AdminGUI
       }
       private void btnViewingProductActionButton_Click(object sender, EventArgs e)
       {
+         // perform data checks
+         // get data
+         String[] productDetails = getDataFromPnlViewingProduct();
+         controller.AddNewProductForSale(productDetails);
          resetToStartPage();
       }
 
@@ -318,7 +312,20 @@ namespace AdminGUI
       {
          resetToStartPage();
       }
-      
+      private string[] getDataFromPnlViewingProduct()
+      {
+         //List<string> productDetails = new List<string>();
+         string[] productDetails = new string[8];
+         productDetails[0] = txtViewingProductProductCategory.Text;
+         productDetails[1] = txtViewingProductProductName.Text;
+         productDetails[2] = txtViewingProductForSale.Text;
+         productDetails[3] = txtViewingProductDescription.Text;
+         productDetails[4] = txtViewingProductProductStock.Text;
+         productDetails[5] = txtViewingProductProductMinStock.Text;
+         productDetails[6] = "";
+         productDetails[7] = txtViewingProductProductPrice.Text;
+         return productDetails;
+      }
      
    }
 }

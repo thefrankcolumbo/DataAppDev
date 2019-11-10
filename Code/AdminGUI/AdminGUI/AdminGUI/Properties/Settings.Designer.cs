@@ -22,15 +22,5 @@ namespace AdminGUI.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("###")]
-        public string ISAD251_AMartinConnectionString {
-            get {
-                return ((string)(this["ISAD251_AMartinConnectionString"]));
-            }
-        }
-    }
+   }
 }

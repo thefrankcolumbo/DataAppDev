@@ -24,10 +24,12 @@ namespace AdminGUI
 
       private void Submit_Click(object sender, EventArgs e)
       {
-         this.Hide();
-         AdminView adminView = new AdminView();
-         adminView.Closed += (s, args) => this.Close();
-         adminView.Show();
+         Boolean authenticated = checkUserNameAndPassword();
+         if(authenticated) Close();
+      }
+      private Boolean checkUserNameAndPassword()
+      {
+         return true;
       }
    }
 }

@@ -36,43 +36,43 @@
          this.btnViewStockForSale = new System.Windows.Forms.Button();
          this.btnViewProductsNotForSale = new System.Windows.Forms.Button();
          this.pnlMainAdminView = new System.Windows.Forms.Panel();
+         this.pnlViewingProduct = new System.Windows.Forms.Panel();
+         this.btnViewingProductCancelButton = new System.Windows.Forms.Button();
+         this.btnViewingProductActionButton = new System.Windows.Forms.Button();
+         this.pictureBox1 = new System.Windows.Forms.PictureBox();
+         this.lblViewingProductPicture = new System.Windows.Forms.Label();
+         this.txtViewingProductDescription = new System.Windows.Forms.TextBox();
+         this.lblViewingProductDescription = new System.Windows.Forms.Label();
+         this.txtViewingProductNumberSold = new System.Windows.Forms.TextBox();
+         this.lblViewingProductNumberSold = new System.Windows.Forms.Label();
+         this.txtViewingProductForSale = new System.Windows.Forms.TextBox();
+         this.lblViewingProductForSale = new System.Windows.Forms.Label();
+         this.txtViewingProductProductStock = new System.Windows.Forms.TextBox();
+         this.lblViewingProductProductStock = new System.Windows.Forms.Label();
+         this.txtViewingProductProductCategory = new System.Windows.Forms.TextBox();
+         this.lblViewingProductProductCategory = new System.Windows.Forms.Label();
+         this.txtViewingProductProductMinStock = new System.Windows.Forms.TextBox();
+         this.lblViewingProductProductMinStock = new System.Windows.Forms.Label();
+         this.txtViewingProductProductPrice = new System.Windows.Forms.TextBox();
+         this.lblViewingProductProductPrice = new System.Windows.Forms.Label();
+         this.txtViewingProductProductID = new System.Windows.Forms.TextBox();
+         this.lblViewingProductProductID = new System.Windows.Forms.Label();
+         this.txtViewingProductProductName = new System.Windows.Forms.TextBox();
+         this.lblViewingProductProductName = new System.Windows.Forms.Label();
+         this.listVCurrentOpenOrders = new System.Windows.Forms.ListView();
          this.lblMainAdminView = new System.Windows.Forms.Label();
          this.btnStartPage = new System.Windows.Forms.Button();
          this.pnlSearchPanel = new System.Windows.Forms.Panel();
-         this.lblSearchTitleLabel = new System.Windows.Forms.Label();
-         this.lblSearchPanelProductID = new System.Windows.Forms.Label();
-         this.txtSearchPanelProductID = new System.Windows.Forms.TextBox();
-         this.lblSearchPanelProductName = new System.Windows.Forms.Label();
-         this.txtSearchPanelProductName = new System.Windows.Forms.TextBox();
          this.listBoxSearchPanel = new System.Windows.Forms.ListBox();
-         this.listVCurrentOpenOrders = new System.Windows.Forms.ListView();
-         this.pnlViewingProduct = new System.Windows.Forms.Panel();
-         this.lblViewingProductProductName = new System.Windows.Forms.Label();
-         this.txtViewingProductProductName = new System.Windows.Forms.TextBox();
-         this.lblViewingProductProductID = new System.Windows.Forms.Label();
-         this.txtViewingProductProductID = new System.Windows.Forms.TextBox();
-         this.lblViewingProductProductPrice = new System.Windows.Forms.Label();
-         this.txtViewingProductProductPrice = new System.Windows.Forms.TextBox();
-         this.lblViewingProductProductMinStock = new System.Windows.Forms.Label();
-         this.txtViewingProductProductMinStock = new System.Windows.Forms.TextBox();
-         this.lblViewingProductProductCategory = new System.Windows.Forms.Label();
-         this.txtViewingProductProductCategory = new System.Windows.Forms.TextBox();
-         this.lblViewingProductProductStock = new System.Windows.Forms.Label();
-         this.txtViewingProductProductStock = new System.Windows.Forms.TextBox();
-         this.lblViewingProductForSale = new System.Windows.Forms.Label();
-         this.txtViewingProductForSale = new System.Windows.Forms.TextBox();
-         this.lblViewingProductNumberSold = new System.Windows.Forms.Label();
-         this.txtViewingProductNumberSold = new System.Windows.Forms.TextBox();
-         this.lblViewingProductDescription = new System.Windows.Forms.Label();
-         this.txtViewingProductDescription = new System.Windows.Forms.TextBox();
-         this.lblViewingProductPicture = new System.Windows.Forms.Label();
-         this.pictureBox1 = new System.Windows.Forms.PictureBox();
-         this.btnViewingProductActionButton = new System.Windows.Forms.Button();
-         this.btnViewingProductCancelButton = new System.Windows.Forms.Button();
+         this.txtSearchPanelProductName = new System.Windows.Forms.TextBox();
+         this.lblSearchPanelProductName = new System.Windows.Forms.Label();
+         this.txtSearchPanelProductID = new System.Windows.Forms.TextBox();
+         this.lblSearchPanelProductID = new System.Windows.Forms.Label();
+         this.lblSearchTitleLabel = new System.Windows.Forms.Label();
          this.pnlMainAdminView.SuspendLayout();
-         this.pnlSearchPanel.SuspendLayout();
          this.pnlViewingProduct.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+         this.pnlSearchPanel.SuspendLayout();
          this.SuspendLayout();
          // 
          // btnWithdrawAddProductForSale
@@ -155,6 +155,229 @@
          this.pnlMainAdminView.Size = new System.Drawing.Size(264, 473);
          this.pnlMainAdminView.TabIndex = 7;
          // 
+         // pnlViewingProduct
+         // 
+         this.pnlViewingProduct.Controls.Add(this.btnViewingProductCancelButton);
+         this.pnlViewingProduct.Controls.Add(this.btnViewingProductActionButton);
+         this.pnlViewingProduct.Controls.Add(this.pictureBox1);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductPicture);
+         this.pnlViewingProduct.Controls.Add(this.txtViewingProductDescription);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductDescription);
+         this.pnlViewingProduct.Controls.Add(this.txtViewingProductNumberSold);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductNumberSold);
+         this.pnlViewingProduct.Controls.Add(this.txtViewingProductForSale);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductForSale);
+         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductStock);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductStock);
+         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductCategory);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductCategory);
+         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductMinStock);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductMinStock);
+         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductPrice);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductPrice);
+         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductID);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductID);
+         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductName);
+         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductName);
+         this.pnlViewingProduct.Location = new System.Drawing.Point(4, 3);
+         this.pnlViewingProduct.Name = "pnlViewingProduct";
+         this.pnlViewingProduct.Size = new System.Drawing.Size(257, 466);
+         this.pnlViewingProduct.TabIndex = 1;
+         // 
+         // btnViewingProductCancelButton
+         // 
+         this.btnViewingProductCancelButton.Location = new System.Drawing.Point(12, 375);
+         this.btnViewingProductCancelButton.Name = "btnViewingProductCancelButton";
+         this.btnViewingProductCancelButton.Size = new System.Drawing.Size(231, 55);
+         this.btnViewingProductCancelButton.TabIndex = 21;
+         this.btnViewingProductCancelButton.Text = "Cancel";
+         this.btnViewingProductCancelButton.UseVisualStyleBackColor = true;
+         this.btnViewingProductCancelButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnViewingProductCancelButton_Click);
+         // 
+         // btnViewingProductActionButton
+         // 
+         this.btnViewingProductActionButton.Location = new System.Drawing.Point(12, 317);
+         this.btnViewingProductActionButton.Name = "btnViewingProductActionButton";
+         this.btnViewingProductActionButton.Size = new System.Drawing.Size(231, 51);
+         this.btnViewingProductActionButton.TabIndex = 20;
+         this.btnViewingProductActionButton.Text = "default";
+         this.btnViewingProductActionButton.UseVisualStyleBackColor = true;
+         this.btnViewingProductActionButton.Click += new System.EventHandler(this.btnViewingProductActionButton_Click);
+         // 
+         // pictureBox1
+         // 
+         this.pictureBox1.Location = new System.Drawing.Point(125, 242);
+         this.pictureBox1.Name = "pictureBox1";
+         this.pictureBox1.Size = new System.Drawing.Size(129, 59);
+         this.pictureBox1.TabIndex = 19;
+         this.pictureBox1.TabStop = false;
+         // 
+         // lblViewingProductPicture
+         // 
+         this.lblViewingProductPicture.AutoSize = true;
+         this.lblViewingProductPicture.Location = new System.Drawing.Point(9, 242);
+         this.lblViewingProductPicture.Name = "lblViewingProductPicture";
+         this.lblViewingProductPicture.Size = new System.Drawing.Size(39, 13);
+         this.lblViewingProductPicture.TabIndex = 18;
+         this.lblViewingProductPicture.Text = "picture";
+         // 
+         // txtViewingProductDescription
+         // 
+         this.txtViewingProductDescription.Location = new System.Drawing.Point(125, 215);
+         this.txtViewingProductDescription.MaxLength = 254;
+         this.txtViewingProductDescription.Name = "txtViewingProductDescription";
+         this.txtViewingProductDescription.Size = new System.Drawing.Size(129, 20);
+         this.txtViewingProductDescription.TabIndex = 17;
+         // 
+         // lblViewingProductDescription
+         // 
+         this.lblViewingProductDescription.AutoSize = true;
+         this.lblViewingProductDescription.Location = new System.Drawing.Point(9, 218);
+         this.lblViewingProductDescription.Name = "lblViewingProductDescription";
+         this.lblViewingProductDescription.Size = new System.Drawing.Size(60, 13);
+         this.lblViewingProductDescription.TabIndex = 16;
+         this.lblViewingProductDescription.Text = "Description";
+         // 
+         // txtViewingProductNumberSold
+         // 
+         this.txtViewingProductNumberSold.Location = new System.Drawing.Point(125, 188);
+         this.txtViewingProductNumberSold.Name = "txtViewingProductNumberSold";
+         this.txtViewingProductNumberSold.ReadOnly = true;
+         this.txtViewingProductNumberSold.Size = new System.Drawing.Size(129, 20);
+         this.txtViewingProductNumberSold.TabIndex = 15;
+         // 
+         // lblViewingProductNumberSold
+         // 
+         this.lblViewingProductNumberSold.AutoSize = true;
+         this.lblViewingProductNumberSold.Location = new System.Drawing.Point(9, 191);
+         this.lblViewingProductNumberSold.Name = "lblViewingProductNumberSold";
+         this.lblViewingProductNumberSold.Size = new System.Drawing.Size(68, 13);
+         this.lblViewingProductNumberSold.TabIndex = 14;
+         this.lblViewingProductNumberSold.Text = "Number Sold";
+         // 
+         // txtViewingProductForSale
+         // 
+         this.txtViewingProductForSale.Location = new System.Drawing.Point(125, 161);
+         this.txtViewingProductForSale.Name = "txtViewingProductForSale";
+         this.txtViewingProductForSale.Size = new System.Drawing.Size(129, 20);
+         this.txtViewingProductForSale.TabIndex = 13;
+         // 
+         // lblViewingProductForSale
+         // 
+         this.lblViewingProductForSale.AutoSize = true;
+         this.lblViewingProductForSale.Location = new System.Drawing.Point(9, 164);
+         this.lblViewingProductForSale.Name = "lblViewingProductForSale";
+         this.lblViewingProductForSale.Size = new System.Drawing.Size(85, 13);
+         this.lblViewingProductForSale.TabIndex = 12;
+         this.lblViewingProductForSale.Text = "Currently for sale";
+         // 
+         // txtViewingProductProductStock
+         // 
+         this.txtViewingProductProductStock.Location = new System.Drawing.Point(125, 134);
+         this.txtViewingProductProductStock.Name = "txtViewingProductProductStock";
+         this.txtViewingProductProductStock.ReadOnly = true;
+         this.txtViewingProductProductStock.Size = new System.Drawing.Size(129, 20);
+         this.txtViewingProductProductStock.TabIndex = 11;
+         // 
+         // lblViewingProductProductStock
+         // 
+         this.lblViewingProductProductStock.AutoSize = true;
+         this.lblViewingProductProductStock.Location = new System.Drawing.Point(9, 137);
+         this.lblViewingProductProductStock.Name = "lblViewingProductProductStock";
+         this.lblViewingProductProductStock.Size = new System.Drawing.Size(87, 13);
+         this.lblViewingProductProductStock.TabIndex = 10;
+         this.lblViewingProductProductStock.Text = "Number of Stock";
+         // 
+         // txtViewingProductProductCategory
+         // 
+         this.txtViewingProductProductCategory.Location = new System.Drawing.Point(125, 108);
+         this.txtViewingProductProductCategory.Name = "txtViewingProductProductCategory";
+         this.txtViewingProductProductCategory.Size = new System.Drawing.Size(129, 20);
+         this.txtViewingProductProductCategory.TabIndex = 9;
+         // 
+         // lblViewingProductProductCategory
+         // 
+         this.lblViewingProductProductCategory.AutoSize = true;
+         this.lblViewingProductProductCategory.Location = new System.Drawing.Point(9, 111);
+         this.lblViewingProductProductCategory.Name = "lblViewingProductProductCategory";
+         this.lblViewingProductProductCategory.Size = new System.Drawing.Size(89, 13);
+         this.lblViewingProductProductCategory.TabIndex = 8;
+         this.lblViewingProductProductCategory.Text = "Product Category";
+         // 
+         // txtViewingProductProductMinStock
+         // 
+         this.txtViewingProductProductMinStock.Location = new System.Drawing.Point(125, 82);
+         this.txtViewingProductProductMinStock.Name = "txtViewingProductProductMinStock";
+         this.txtViewingProductProductMinStock.Size = new System.Drawing.Size(129, 20);
+         this.txtViewingProductProductMinStock.TabIndex = 7;
+         // 
+         // lblViewingProductProductMinStock
+         // 
+         this.lblViewingProductProductMinStock.AutoSize = true;
+         this.lblViewingProductProductMinStock.Location = new System.Drawing.Point(9, 85);
+         this.lblViewingProductProductMinStock.Name = "lblViewingProductProductMinStock";
+         this.lblViewingProductProductMinStock.Size = new System.Drawing.Size(108, 13);
+         this.lblViewingProductProductMinStock.TabIndex = 6;
+         this.lblViewingProductProductMinStock.Text = "Minimum Stock Level";
+         // 
+         // txtViewingProductProductPrice
+         // 
+         this.txtViewingProductProductPrice.Location = new System.Drawing.Point(125, 56);
+         this.txtViewingProductProductPrice.Name = "txtViewingProductProductPrice";
+         this.txtViewingProductProductPrice.Size = new System.Drawing.Size(129, 20);
+         this.txtViewingProductProductPrice.TabIndex = 5;
+         // 
+         // lblViewingProductProductPrice
+         // 
+         this.lblViewingProductProductPrice.AutoSize = true;
+         this.lblViewingProductProductPrice.Location = new System.Drawing.Point(9, 61);
+         this.lblViewingProductProductPrice.Name = "lblViewingProductProductPrice";
+         this.lblViewingProductProductPrice.Size = new System.Drawing.Size(71, 13);
+         this.lblViewingProductProductPrice.TabIndex = 4;
+         this.lblViewingProductProductPrice.Text = "Product Price";
+         // 
+         // txtViewingProductProductID
+         // 
+         this.txtViewingProductProductID.Location = new System.Drawing.Point(125, 30);
+         this.txtViewingProductProductID.Name = "txtViewingProductProductID";
+         this.txtViewingProductProductID.ReadOnly = true;
+         this.txtViewingProductProductID.Size = new System.Drawing.Size(129, 20);
+         this.txtViewingProductProductID.TabIndex = 3;
+         // 
+         // lblViewingProductProductID
+         // 
+         this.lblViewingProductProductID.AutoSize = true;
+         this.lblViewingProductProductID.Location = new System.Drawing.Point(9, 33);
+         this.lblViewingProductProductID.Name = "lblViewingProductProductID";
+         this.lblViewingProductProductID.Size = new System.Drawing.Size(58, 13);
+         this.lblViewingProductProductID.TabIndex = 2;
+         this.lblViewingProductProductID.Text = "Product ID";
+         // 
+         // txtViewingProductProductName
+         // 
+         this.txtViewingProductProductName.Location = new System.Drawing.Point(125, 4);
+         this.txtViewingProductProductName.Name = "txtViewingProductProductName";
+         this.txtViewingProductProductName.Size = new System.Drawing.Size(129, 20);
+         this.txtViewingProductProductName.TabIndex = 1;
+         // 
+         // lblViewingProductProductName
+         // 
+         this.lblViewingProductProductName.AutoSize = true;
+         this.lblViewingProductProductName.Location = new System.Drawing.Point(9, 7);
+         this.lblViewingProductProductName.Name = "lblViewingProductProductName";
+         this.lblViewingProductProductName.Size = new System.Drawing.Size(75, 13);
+         this.lblViewingProductProductName.TabIndex = 0;
+         this.lblViewingProductProductName.Text = "Product Name";
+         // 
+         // listVCurrentOpenOrders
+         // 
+         this.listVCurrentOpenOrders.HideSelection = false;
+         this.listVCurrentOpenOrders.Location = new System.Drawing.Point(3, 3);
+         this.listVCurrentOpenOrders.Name = "listVCurrentOpenOrders";
+         this.listVCurrentOpenOrders.Size = new System.Drawing.Size(258, 467);
+         this.listVCurrentOpenOrders.TabIndex = 0;
+         this.listVCurrentOpenOrders.UseCompatibleStateImageBehavior = false;
+         // 
          // lblMainAdminView
          // 
          this.lblMainAdminView.AutoSize = true;
@@ -190,32 +413,22 @@
          this.pnlSearchPanel.TabIndex = 10;
          this.pnlSearchPanel.Visible = false;
          // 
-         // lblSearchTitleLabel
+         // listBoxSearchPanel
          // 
-         this.lblSearchTitleLabel.AutoSize = true;
-         this.lblSearchTitleLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.lblSearchTitleLabel.Location = new System.Drawing.Point(530, 15);
-         this.lblSearchTitleLabel.Name = "lblSearchTitleLabel";
-         this.lblSearchTitleLabel.Size = new System.Drawing.Size(64, 15);
-         this.lblSearchTitleLabel.TabIndex = 0;
-         this.lblSearchTitleLabel.Text = "Search Box";
+         this.listBoxSearchPanel.FormattingEnabled = true;
+         this.listBoxSearchPanel.Location = new System.Drawing.Point(4, 109);
+         this.listBoxSearchPanel.Name = "listBoxSearchPanel";
+         this.listBoxSearchPanel.Size = new System.Drawing.Size(263, 355);
+         this.listBoxSearchPanel.TabIndex = 5;
+         this.listBoxSearchPanel.DoubleClick += new System.EventHandler(this.listBoxSearchPanek_DoubleClick);
          // 
-         // lblSearchPanelProductID
+         // txtSearchPanelProductName
          // 
-         this.lblSearchPanelProductID.AutoSize = true;
-         this.lblSearchPanelProductID.Location = new System.Drawing.Point(7, 21);
-         this.lblSearchPanelProductID.Name = "lblSearchPanelProductID";
-         this.lblSearchPanelProductID.Size = new System.Drawing.Size(58, 13);
-         this.lblSearchPanelProductID.TabIndex = 1;
-         this.lblSearchPanelProductID.Text = "Product ID";
-         // 
-         // txtSearchPanelProductID
-         // 
-         this.txtSearchPanelProductID.Location = new System.Drawing.Point(4, 38);
-         this.txtSearchPanelProductID.Name = "txtSearchPanelProductID";
-         this.txtSearchPanelProductID.Size = new System.Drawing.Size(179, 20);
-         this.txtSearchPanelProductID.TabIndex = 2;
-         this.txtSearchPanelProductID.TextChanged += new System.EventHandler(this.txtSearchPanelProductID_TextChange);
+         this.txtSearchPanelProductName.Location = new System.Drawing.Point(4, 82);
+         this.txtSearchPanelProductName.Name = "txtSearchPanelProductName";
+         this.txtSearchPanelProductName.Size = new System.Drawing.Size(179, 20);
+         this.txtSearchPanelProductName.TabIndex = 4;
+         this.txtSearchPanelProductName.TextChanged += new System.EventHandler(this.txtSearchPanelProductName_TextChange);
          // 
          // lblSearchPanelProductName
          // 
@@ -226,244 +439,32 @@
          this.lblSearchPanelProductName.TabIndex = 3;
          this.lblSearchPanelProductName.Text = "Product Name";
          // 
-         // txtSearchPanelProductName
+         // txtSearchPanelProductID
          // 
-         this.txtSearchPanelProductName.Location = new System.Drawing.Point(4, 82);
-         this.txtSearchPanelProductName.Name = "txtSearchPanelProductName";
-         this.txtSearchPanelProductName.Size = new System.Drawing.Size(179, 20);
-         this.txtSearchPanelProductName.TabIndex = 4;
-         this.txtSearchPanelProductName.TextChanged += new System.EventHandler(this.txtSearchPanelProductName_TextChange);
+         this.txtSearchPanelProductID.Location = new System.Drawing.Point(4, 38);
+         this.txtSearchPanelProductID.Name = "txtSearchPanelProductID";
+         this.txtSearchPanelProductID.Size = new System.Drawing.Size(179, 20);
+         this.txtSearchPanelProductID.TabIndex = 2;
+         this.txtSearchPanelProductID.TextChanged += new System.EventHandler(this.txtSearchPanelProductID_TextChange);
          // 
-         // listBoxSearchPanel
+         // lblSearchPanelProductID
          // 
-         this.listBoxSearchPanel.FormattingEnabled = true;
-         this.listBoxSearchPanel.Location = new System.Drawing.Point(4, 109);
-         this.listBoxSearchPanel.Name = "listBoxSearchPanel";
-         this.listBoxSearchPanel.Size = new System.Drawing.Size(263, 355);
-         this.listBoxSearchPanel.TabIndex = 5;
+         this.lblSearchPanelProductID.AutoSize = true;
+         this.lblSearchPanelProductID.Location = new System.Drawing.Point(7, 21);
+         this.lblSearchPanelProductID.Name = "lblSearchPanelProductID";
+         this.lblSearchPanelProductID.Size = new System.Drawing.Size(58, 13);
+         this.lblSearchPanelProductID.TabIndex = 1;
+         this.lblSearchPanelProductID.Text = "Product ID";
          // 
-         // listVCurrentOpenOrders
+         // lblSearchTitleLabel
          // 
-         this.listVCurrentOpenOrders.HideSelection = false;
-         this.listVCurrentOpenOrders.Location = new System.Drawing.Point(3, 3);
-         this.listVCurrentOpenOrders.Name = "listVCurrentOpenOrders";
-         this.listVCurrentOpenOrders.Size = new System.Drawing.Size(258, 467);
-         this.listVCurrentOpenOrders.TabIndex = 0;
-         this.listVCurrentOpenOrders.UseCompatibleStateImageBehavior = false;
-         // 
-         // pnlViewingProduct
-         // 
-         this.pnlViewingProduct.Controls.Add(this.btnViewingProductCancelButton);
-         this.pnlViewingProduct.Controls.Add(this.btnViewingProductActionButton);
-         this.pnlViewingProduct.Controls.Add(this.pictureBox1);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductPicture);
-         this.pnlViewingProduct.Controls.Add(this.txtViewingProductDescription);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductDescription);
-         this.pnlViewingProduct.Controls.Add(this.txtViewingProductNumberSold);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductNumberSold);
-         this.pnlViewingProduct.Controls.Add(this.txtViewingProductForSale);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductForSale);
-         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductStock);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductStock);
-         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductCategory);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductCategory);
-         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductMinStock);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductMinStock);
-         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductPrice);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductPrice);
-         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductID);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductID);
-         this.pnlViewingProduct.Controls.Add(this.txtViewingProductProductName);
-         this.pnlViewingProduct.Controls.Add(this.lblViewingProductProductName);
-         this.pnlViewingProduct.Location = new System.Drawing.Point(4, 4);
-         this.pnlViewingProduct.Name = "pnlViewingProduct";
-         this.pnlViewingProduct.Size = new System.Drawing.Size(257, 466);
-         this.pnlViewingProduct.TabIndex = 1;
-         // 
-         // lblViewingProductProductName
-         // 
-         this.lblViewingProductProductName.AutoSize = true;
-         this.lblViewingProductProductName.Location = new System.Drawing.Point(9, 7);
-         this.lblViewingProductProductName.Name = "lblViewingProductProductName";
-         this.lblViewingProductProductName.Size = new System.Drawing.Size(75, 13);
-         this.lblViewingProductProductName.TabIndex = 0;
-         this.lblViewingProductProductName.Text = "Product Name";
-         // 
-         // txtViewingProductProductName
-         // 
-         this.txtViewingProductProductName.Location = new System.Drawing.Point(125, 4);
-         this.txtViewingProductProductName.Name = "txtViewingProductProductName";
-         this.txtViewingProductProductName.Size = new System.Drawing.Size(129, 20);
-         this.txtViewingProductProductName.TabIndex = 1;
-         // 
-         // lblViewingProductProductID
-         // 
-         this.lblViewingProductProductID.AutoSize = true;
-         this.lblViewingProductProductID.Location = new System.Drawing.Point(9, 33);
-         this.lblViewingProductProductID.Name = "lblViewingProductProductID";
-         this.lblViewingProductProductID.Size = new System.Drawing.Size(58, 13);
-         this.lblViewingProductProductID.TabIndex = 2;
-         this.lblViewingProductProductID.Text = "Product ID";
-         // 
-         // txtViewingProductProductID
-         // 
-         this.txtViewingProductProductID.Location = new System.Drawing.Point(125, 30);
-         this.txtViewingProductProductID.Name = "txtViewingProductProductID";
-         this.txtViewingProductProductID.ReadOnly = true;
-         this.txtViewingProductProductID.Size = new System.Drawing.Size(129, 20);
-         this.txtViewingProductProductID.TabIndex = 3;
-         // 
-         // lblViewingProductProductPrice
-         // 
-         this.lblViewingProductProductPrice.AutoSize = true;
-         this.lblViewingProductProductPrice.Location = new System.Drawing.Point(9, 61);
-         this.lblViewingProductProductPrice.Name = "lblViewingProductProductPrice";
-         this.lblViewingProductProductPrice.Size = new System.Drawing.Size(71, 13);
-         this.lblViewingProductProductPrice.TabIndex = 4;
-         this.lblViewingProductProductPrice.Text = "Product Price";
-         // 
-         // txtViewingProductProductPrice
-         // 
-         this.txtViewingProductProductPrice.Location = new System.Drawing.Point(125, 56);
-         this.txtViewingProductProductPrice.Name = "txtViewingProductProductPrice";
-         this.txtViewingProductProductPrice.Size = new System.Drawing.Size(129, 20);
-         this.txtViewingProductProductPrice.TabIndex = 5;
-         // 
-         // lblViewingProductProductMinStock
-         // 
-         this.lblViewingProductProductMinStock.AutoSize = true;
-         this.lblViewingProductProductMinStock.Location = new System.Drawing.Point(9, 85);
-         this.lblViewingProductProductMinStock.Name = "lblViewingProductProductMinStock";
-         this.lblViewingProductProductMinStock.Size = new System.Drawing.Size(108, 13);
-         this.lblViewingProductProductMinStock.TabIndex = 6;
-         this.lblViewingProductProductMinStock.Text = "Minimum Stock Level";
-         // 
-         // txtViewingProductProductMinStock
-         // 
-         this.txtViewingProductProductMinStock.Location = new System.Drawing.Point(125, 82);
-         this.txtViewingProductProductMinStock.Name = "txtViewingProductProductMinStock";
-         this.txtViewingProductProductMinStock.Size = new System.Drawing.Size(129, 20);
-         this.txtViewingProductProductMinStock.TabIndex = 7;
-         // 
-         // lblViewingProductProductCategory
-         // 
-         this.lblViewingProductProductCategory.AutoSize = true;
-         this.lblViewingProductProductCategory.Location = new System.Drawing.Point(9, 111);
-         this.lblViewingProductProductCategory.Name = "lblViewingProductProductCategory";
-         this.lblViewingProductProductCategory.Size = new System.Drawing.Size(89, 13);
-         this.lblViewingProductProductCategory.TabIndex = 8;
-         this.lblViewingProductProductCategory.Text = "Product Category";
-         // 
-         // txtViewingProductProductCategory
-         // 
-         this.txtViewingProductProductCategory.Location = new System.Drawing.Point(125, 108);
-         this.txtViewingProductProductCategory.Name = "txtViewingProductProductCategory";
-         this.txtViewingProductProductCategory.Size = new System.Drawing.Size(129, 20);
-         this.txtViewingProductProductCategory.TabIndex = 9;
-         // 
-         // lblViewingProductProductStock
-         // 
-         this.lblViewingProductProductStock.AutoSize = true;
-         this.lblViewingProductProductStock.Location = new System.Drawing.Point(9, 137);
-         this.lblViewingProductProductStock.Name = "lblViewingProductProductStock";
-         this.lblViewingProductProductStock.Size = new System.Drawing.Size(87, 13);
-         this.lblViewingProductProductStock.TabIndex = 10;
-         this.lblViewingProductProductStock.Text = "Number of Stock";
-         // 
-         // txtViewingProductProductStock
-         // 
-         this.txtViewingProductProductStock.Location = new System.Drawing.Point(125, 134);
-         this.txtViewingProductProductStock.Name = "txtViewingProductProductStock";
-         this.txtViewingProductProductStock.ReadOnly = true;
-         this.txtViewingProductProductStock.Size = new System.Drawing.Size(129, 20);
-         this.txtViewingProductProductStock.TabIndex = 11;
-         // 
-         // lblViewingProductForSale
-         // 
-         this.lblViewingProductForSale.AutoSize = true;
-         this.lblViewingProductForSale.Location = new System.Drawing.Point(9, 164);
-         this.lblViewingProductForSale.Name = "lblViewingProductForSale";
-         this.lblViewingProductForSale.Size = new System.Drawing.Size(85, 13);
-         this.lblViewingProductForSale.TabIndex = 12;
-         this.lblViewingProductForSale.Text = "Currently for sale";
-         // 
-         // txtViewingProductForSale
-         // 
-         this.txtViewingProductForSale.Location = new System.Drawing.Point(125, 161);
-         this.txtViewingProductForSale.Name = "txtViewingProductForSale";
-         this.txtViewingProductForSale.Size = new System.Drawing.Size(129, 20);
-         this.txtViewingProductForSale.TabIndex = 13;
-         // 
-         // lblViewingProductNumberSold
-         // 
-         this.lblViewingProductNumberSold.AutoSize = true;
-         this.lblViewingProductNumberSold.Location = new System.Drawing.Point(9, 191);
-         this.lblViewingProductNumberSold.Name = "lblViewingProductNumberSold";
-         this.lblViewingProductNumberSold.Size = new System.Drawing.Size(68, 13);
-         this.lblViewingProductNumberSold.TabIndex = 14;
-         this.lblViewingProductNumberSold.Text = "Number Sold";
-         // 
-         // txtViewingProductNumberSold
-         // 
-         this.txtViewingProductNumberSold.Location = new System.Drawing.Point(125, 188);
-         this.txtViewingProductNumberSold.Name = "txtViewingProductNumberSold";
-         this.txtViewingProductNumberSold.ReadOnly = true;
-         this.txtViewingProductNumberSold.Size = new System.Drawing.Size(129, 20);
-         this.txtViewingProductNumberSold.TabIndex = 15;
-         // 
-         // lblViewingProductDescription
-         // 
-         this.lblViewingProductDescription.AutoSize = true;
-         this.lblViewingProductDescription.Location = new System.Drawing.Point(9, 218);
-         this.lblViewingProductDescription.Name = "lblViewingProductDescription";
-         this.lblViewingProductDescription.Size = new System.Drawing.Size(60, 13);
-         this.lblViewingProductDescription.TabIndex = 16;
-         this.lblViewingProductDescription.Text = "Description";
-         // 
-         // txtViewingProductDescription
-         // 
-         this.txtViewingProductDescription.Location = new System.Drawing.Point(125, 215);
-         this.txtViewingProductDescription.MaxLength = 254;
-         this.txtViewingProductDescription.Name = "txtViewingProductDescription";
-         this.txtViewingProductDescription.Size = new System.Drawing.Size(129, 20);
-         this.txtViewingProductDescription.TabIndex = 17;
-         // 
-         // lblViewingProductPicture
-         // 
-         this.lblViewingProductPicture.AutoSize = true;
-         this.lblViewingProductPicture.Location = new System.Drawing.Point(9, 242);
-         this.lblViewingProductPicture.Name = "lblViewingProductPicture";
-         this.lblViewingProductPicture.Size = new System.Drawing.Size(39, 13);
-         this.lblViewingProductPicture.TabIndex = 18;
-         this.lblViewingProductPicture.Text = "picture";
-         // 
-         // pictureBox1
-         // 
-         this.pictureBox1.Location = new System.Drawing.Point(125, 242);
-         this.pictureBox1.Name = "pictureBox1";
-         this.pictureBox1.Size = new System.Drawing.Size(129, 59);
-         this.pictureBox1.TabIndex = 19;
-         this.pictureBox1.TabStop = false;
-         // 
-         // btnViewingProductActionButton
-         // 
-         this.btnViewingProductActionButton.Location = new System.Drawing.Point(12, 317);
-         this.btnViewingProductActionButton.Name = "btnViewingProductActionButton";
-         this.btnViewingProductActionButton.Size = new System.Drawing.Size(231, 51);
-         this.btnViewingProductActionButton.TabIndex = 20;
-         this.btnViewingProductActionButton.Text = "default";
-         this.btnViewingProductActionButton.UseVisualStyleBackColor = true;
-         this.btnViewingProductActionButton.Click += new System.EventHandler(this.btnViewingProductActionButton_Click);
-         // 
-         // btnViewingProductCancelButton
-         // 
-         this.btnViewingProductCancelButton.Location = new System.Drawing.Point(12, 375);
-         this.btnViewingProductCancelButton.Name = "btnViewingProductCancelButton";
-         this.btnViewingProductCancelButton.Size = new System.Drawing.Size(231, 55);
-         this.btnViewingProductCancelButton.TabIndex = 21;
-         this.btnViewingProductCancelButton.Text = "Cancel";
-         this.btnViewingProductCancelButton.UseVisualStyleBackColor = true;
-         this.btnViewingProductCancelButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnViewingProductCancelButton_Click);
+         this.lblSearchTitleLabel.AutoSize = true;
+         this.lblSearchTitleLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.lblSearchTitleLabel.Location = new System.Drawing.Point(530, 15);
+         this.lblSearchTitleLabel.Name = "lblSearchTitleLabel";
+         this.lblSearchTitleLabel.Size = new System.Drawing.Size(64, 15);
+         this.lblSearchTitleLabel.TabIndex = 0;
+         this.lblSearchTitleLabel.Text = "Search Box";
          // 
          // AdminView
          // 
@@ -485,11 +486,11 @@
          this.Name = "AdminView";
          this.Text = "AdminView";
          this.pnlMainAdminView.ResumeLayout(false);
-         this.pnlSearchPanel.ResumeLayout(false);
-         this.pnlSearchPanel.PerformLayout();
          this.pnlViewingProduct.ResumeLayout(false);
          this.pnlViewingProduct.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+         this.pnlSearchPanel.ResumeLayout(false);
+         this.pnlSearchPanel.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 

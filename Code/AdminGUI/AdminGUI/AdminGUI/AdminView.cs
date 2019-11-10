@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace AdminGUI
 {
@@ -16,7 +18,22 @@ namespace AdminGUI
       {
          InitializeComponent();
          getOpenOrders();
-         setPnlViewingProductAllFieldsToReadOnly();
+         resetToStartPage();
+         //using (SqlConnection conn = new SqlConnection("###"))
+         //{
+
+         //   conn.Open();
+         //   SqlCommand cmd = new SqlCommand("GetAllProductsForSale", conn);
+         //   cmd.CommandType = CommandType.StoredProcedure;
+         //   using (SqlDataReader rdr = cmd.ExecuteReader())
+         //   {
+         //      // iterate through results, printing each to console
+         //      while (rdr.Read())
+         //      {
+         //         Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["Name"], rdr["Id"]);
+         //      }
+         //   }
+         //}
       }
 
       private void btnWithdrawAddProductForSale_Click(object sender, MouseEventArgs e)
@@ -65,13 +82,17 @@ namespace AdminGUI
          setPnlViewingProductFieldToNonReadOnlyForProductEdit();
          //4. if action button press DB updated
          MessageBox.Show("NEED TO CODE FOR BTN ACTION ON FOR SALE CHANGE");
+         //5. show edit product panel
+         pnlViewingProduct.Visible = true;
       }
 
       private void btnViewStockLevels_Click(object sender, MouseEventArgs e)
       {
          //1. change button / panel visability to suit required admin function
-         hideMenuButtons("view currect stock levels");
+         hideMenuButtons("view current stock levels");
          MessageBox.Show("MUST ADD CODE TO VIEW CURRENT STOCK LEVELS");
+         getCurrentStockLevels();
+         listVCurrentOpenOrders.Visible = true;
       }
 
       private void btnOrderStockReport_Click(object sender, MouseEventArgs e)
@@ -79,6 +100,8 @@ namespace AdminGUI
          //1. change button / panel visability to suit required admin function
          hideMenuButtons("list of products currently below the minimum stock number");
          MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
+         getCurrentStockUnderMinimumOrderAmount();
+         listVCurrentOpenOrders.Visible = true;
       }
 
       private void btnViewStockForSale_Click(object sender, MouseEventArgs e)
@@ -86,6 +109,8 @@ namespace AdminGUI
          //1. change button / panel visability to suit required admin function
          hideMenuButtons("view all products available for sale");
          MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
+         getCurrentStockMarkedAsForSale();
+         listVCurrentOpenOrders.Visible = true;
       }
 
       private void btnViewProductsNotForSale_Click(object sender, MouseEventArgs e)
@@ -93,6 +118,8 @@ namespace AdminGUI
          //1. change button / panel visability to suit required admin function
          hideMenuButtons("view all products not available for sale");
          MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
+         getCurrentStockMarkedAsNotForSale();
+         listVCurrentOpenOrders.Visible = true;
       }
 
       private void btnStartPage_Click(object sender, MouseEventArgs e)
@@ -105,6 +132,29 @@ namespace AdminGUI
          lblSearchTitleLabel.Visible = true;
          MessageBox.Show("MUST ADD CODE ENABLE SEARCH AND FILL LIST BOX. ON USER " +
             "SELECTION PRODUCT DETAILS MUST APPEAR ON OTHER PANEL");
+         populateListBox();
+      }
+      private void populateListBox()
+      {
+         // Shutdown the painting of the ListBox as items are added.
+         listBoxSearchPanel.BeginUpdate();
+
+         // Loop through and add 50 items to the ListBox.
+         for (int x = 1; x <= 30; x++)
+         {
+            listBoxSearchPanel.Items.Add(("Item {0}", x));
+
+         }
+         listBoxSearchPanel.EndUpdate();
+      }
+      private void listBoxSearchPanek_DoubleClick(object sender, EventArgs e)
+      {
+         // Gets the selected item and then gets all the details from the DB
+         String blah = listBoxSearchPanel.SelectedItem.ToString();
+         // holder method
+         setPnlViewingProductFieldsFromDatabase();
+         // make panel visable
+         pnlViewingProduct.Visible = true;
       }
       private void resetToStartPage()
       {
@@ -117,7 +167,7 @@ namespace AdminGUI
          btnViewStockForSale.Visible = true;
          btnViewProductsNotForSale.Visible = true;
          btnViewStockLevels.Visible = true;
-         lblMainAdminView.Text = "Current Stock Levels";
+         lblMainAdminView.Text = "Current Open Orders";
          pnlSearchPanel.Visible = false;
          pnlSearchPanel.Visible = false;
          listVCurrentOpenOrders.Visible = true;
@@ -189,16 +239,76 @@ namespace AdminGUI
       }
       private void getOpenOrders()
       {
-         listVCurrentOpenOrders.Items.Add("code needed");
-         listVCurrentOpenOrders.Items.Add("to make");
-         listVCurrentOpenOrders.Items.Add("this into");
-         listVCurrentOpenOrders.Items.Add("a list ");
-         listVCurrentOpenOrders.Items.Add("of open");
-         listVCurrentOpenOrders.Items.Add("orders. make");
-         listVCurrentOpenOrders.Items.Add("this an");
-         listVCurrentOpenOrders.Items.Add("async call");
+         listVCurrentOpenOrders.Items.Clear();
+         listVCurrentOpenOrders.Items.Add("OpenOrders");
+         listVCurrentOpenOrders.Items.Add("OpenOrders");
+         listVCurrentOpenOrders.Items.Add("OpenOrders");
+         listVCurrentOpenOrders.Items.Add("OpenOrders");
+         listVCurrentOpenOrders.Items.Add("OpenOrders");
+         listVCurrentOpenOrders.Items.Add("OpenOrders");
+         listVCurrentOpenOrders.Items.Add("OpenOrders");
+         listVCurrentOpenOrders.Items.Add("OpenOrders");
       }
-
+      private void getCurrentStockLevels()
+      {
+         listVCurrentOpenOrders.Items.Clear();
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+      }
+      private void getCurrentStockUnderMinimumOrderAmount()
+      {
+         listVCurrentOpenOrders.Items.Clear();
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+      }
+      private void getCurrentStockMarkedAsForSale()
+      {
+         listVCurrentOpenOrders.Items.Clear();
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+      }
+      private void getCurrentStockMarkedAsNotForSale()
+      {
+         listVCurrentOpenOrders.Items.Clear();
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+      }
       private void btnViewingProductActionButton_Click(object sender, EventArgs e)
       {
          resetToStartPage();
@@ -208,5 +318,7 @@ namespace AdminGUI
       {
          resetToStartPage();
       }
+      
+     
    }
 }

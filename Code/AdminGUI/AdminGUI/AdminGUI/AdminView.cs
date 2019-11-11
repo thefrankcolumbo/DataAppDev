@@ -94,20 +94,14 @@ namespace AdminGUI
 
       private void btnViewStockForSale_Click(object sender, MouseEventArgs e)
       {
-         //1. change button / panel visability to suit required admin function
          hideMenuButtons("view all products available for sale");
-         List<List<string>> results = new List<List<string>>();
-         results = controller.viewStockForSale();
-         MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
          getCurrentStockMarkedAsForSale();
          listVCurrentOpenOrders.Visible = true;
       }
 
       private void btnViewProductsNotForSale_Click(object sender, MouseEventArgs e)
       {
-         //1. change button / panel visability to suit required admin function
          hideMenuButtons("view all products not available for sale");
-         MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
          getCurrentStockMarkedAsNotForSale();
          listVCurrentOpenOrders.Visible = true;
       }
@@ -271,33 +265,44 @@ namespace AdminGUI
       private void getCurrentStockMarkedAsForSale()
       {
          listVCurrentOpenOrders.Items.Clear();
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsForSale");
+         string output = controller.viewStockForSale();
+         string[] layer01 = output.Split(':');
+         foreach (var product in layer01)
+         {
+            string[] layer02 = product.Split(',');
+
+            listVCurrentOpenOrders.Items.Add(layer02[0]);
+            listVCurrentOpenOrders.Items.Add(layer02[1]);
+            listVCurrentOpenOrders.Items.Add(layer02[2]);
+            listVCurrentOpenOrders.Items.Add(layer02[3]);
+            listVCurrentOpenOrders.Items.Add(layer02[4]);
+            listVCurrentOpenOrders.Items.Add(layer02[5]);
+            listVCurrentOpenOrders.Items.Add(layer02[6]);
+            listVCurrentOpenOrders.Items.Add(layer02[7]);
+            listVCurrentOpenOrders.Items.Add(layer02[8]);
+            Array.Clear(layer02, 0, 8);
+         }
       }
       private void getCurrentStockMarkedAsNotForSale()
       {
          listVCurrentOpenOrders.Items.Clear();
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
-         listVCurrentOpenOrders.Items.Add("CurrentStockMarkedAsNotForSale");
+         string output = controller.viewStockNotForSale();
+         string[] layer01 = output.Split(':');
+         foreach (var product in layer01)
+         {
+            string[] layer02 = product.Split(',');
+
+            listVCurrentOpenOrders.Items.Add(layer02[0]);
+            listVCurrentOpenOrders.Items.Add(layer02[1]);
+            listVCurrentOpenOrders.Items.Add(layer02[2]);
+            listVCurrentOpenOrders.Items.Add(layer02[3]);
+            listVCurrentOpenOrders.Items.Add(layer02[4]);
+            listVCurrentOpenOrders.Items.Add(layer02[5]);
+            listVCurrentOpenOrders.Items.Add(layer02[6]);
+            listVCurrentOpenOrders.Items.Add(layer02[7]);
+            listVCurrentOpenOrders.Items.Add(layer02[8]);
+            Array.Clear(layer02, 0, 8);
+         }
       }
       private void btnViewingProductActionButton_Click(object sender, EventArgs e)
       {
@@ -315,7 +320,7 @@ namespace AdminGUI
       private string[] getDataFromPnlViewingProduct()
       {
          //List<string> productDetails = new List<string>();
-         string[] productDetails = new string[8];
+         string[] productDetails = new string[9];
          productDetails[0] = txtViewingProductProductCategory.Text;
          productDetails[1] = txtViewingProductProductName.Text;
          productDetails[2] = txtViewingProductForSale.Text;
@@ -326,6 +331,6 @@ namespace AdminGUI
          productDetails[7] = txtViewingProductProductPrice.Text;
          return productDetails;
       }
-     
+
    }
 }

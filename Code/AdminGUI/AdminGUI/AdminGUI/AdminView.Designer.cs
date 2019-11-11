@@ -420,7 +420,7 @@
          this.listBoxSearchPanel.Name = "listBoxSearchPanel";
          this.listBoxSearchPanel.Size = new System.Drawing.Size(263, 355);
          this.listBoxSearchPanel.TabIndex = 5;
-         this.listBoxSearchPanel.DoubleClick += new System.EventHandler(this.listBoxSearchPanek_DoubleClick);
+         this.listBoxSearchPanel.DoubleClick += new System.EventHandler(this.listBoxSearchPanel_DoubleClick);
          // 
          // txtSearchPanelProductName
          // 

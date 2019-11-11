@@ -111,25 +111,32 @@ namespace AdminGUI
          lblSearchTitleLabel.Visible = true;
          MessageBox.Show("MUST ADD CODE ENABLE SEARCH AND FILL LIST BOX. ON USER " +
             "SELECTION PRODUCT DETAILS MUST APPEAR ON OTHER PANEL");
-         populateListBox();
+         //populateListBox();
       }
-      private void populateListBox()
+      private void populateListBox(string output)
       {
-         // Shutdown the painting of the ListBox as items are added.
+         // removes anything listed in the list box
+         listBoxSearchPanel.Items.Clear();
+         // starts the list box update
          listBoxSearchPanel.BeginUpdate();
-
-         // Loop through and add 50 items to the ListBox.
-         for (int x = 1; x <= 30; x++)
+         // declares string fro list box entry
+         string listBoxLineOutput;
+         // spilts the string into individual products
+         string[] layer01 = output.Split(':');
+         // cycles through each individual product
+         foreach (var product in layer01)
          {
-            listBoxSearchPanel.Items.Add(("Item {0}", x));
-
+            // splits the individual product string into Id and Name
+            string[] layer02 = product.Split(',');
+            listBoxLineOutput = "Product Id: " + layer02[1] + ". Product Name: " + layer02[0];
+            listBoxSearchPanel.Items.Add((listBoxLineOutput));
          }
          listBoxSearchPanel.EndUpdate();
       }
-      private void listBoxSearchPanek_DoubleClick(object sender, EventArgs e)
+      private void listBoxSearchPanel_DoubleClick(object sender, EventArgs e)
       {
-         // Gets the selected item and then gets all the details from the DB
-         String blah = listBoxSearchPanel.SelectedItem.ToString();
+         // Gets the selected item 
+         string blah = listBoxSearchPanel.SelectedItem.ToString();
          // holder method
          setPnlViewingProductFieldsFromDatabase();
          // make panel visable
@@ -155,7 +162,7 @@ namespace AdminGUI
          pnlViewingProduct.Visible = false;
          setPnlViewingProductAllFieldsToReadOnly();
       }
-      private void hideMenuButtons(String mainAdminViewlbl)
+      private void hideMenuButtons(string mainAdminViewlbl)
       {
          btnStartPage.Visible = true;
          btnWithdrawAddProductForSale.Visible = false;
@@ -209,12 +216,16 @@ namespace AdminGUI
       }
       private void txtSearchPanelProductID_TextChange(object sender, EventArgs e)
       {
-
+         string output = controller.searchForProductByPartialId(txtSearchPanelProductName.Text);
+         if (output != "") populateListBox(output);
+         else listBoxSearchPanel.Items.Clear();
       }
 
       private void txtSearchPanelProductName_TextChange(object sender, EventArgs e)
       {
-
+         string output = controller.searchForProductByPartialName(txtSearchPanelProductName.Text);
+         if(output !="") populateListBox(output);
+         else listBoxSearchPanel.Items.Clear();
       }
       private void getOpenOrders()
       {
@@ -298,6 +309,5 @@ namespace AdminGUI
          productDetails[7] = txtViewingProductProductPrice.Text;
          return productDetails;
       }
-
    }
 }

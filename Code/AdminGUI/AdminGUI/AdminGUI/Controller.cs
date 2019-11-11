@@ -9,9 +9,6 @@ using System.Windows.Forms;
 
 namespace AdminGUI
 {
-
-
-
    public class Controller
    {
       private SqlConnection conn;
@@ -19,7 +16,36 @@ namespace AdminGUI
       {
          setupConnection();
       }
-      public void updateProductForSaleById(String[] productDetails)
+      public string searchForProductByPartialId(string partialId)
+      {
+         return searchForProducts(partialId, "SearchForProductByIdLikness", "@id");
+      }
+      public string searchForProductByPartialName(string partialName)
+      {
+         return searchForProducts(partialName, "SearchForProductByNameLikness", "@name");
+      }
+      private string searchForProducts(string partialString, string storedProcedure, string field)
+      {
+         string Output = "";
+         openConnection();
+         SqlCommand cmd = new SqlCommand(storedProcedure, conn);
+         cmd.CommandType = CommandType.StoredProcedure;
+         cmd.Parameters.AddWithValue(field, partialString);
+         SqlDataReader datareader = cmd.ExecuteReader();
+         while (datareader.Read())
+         {
+            for (int count = 0; count < datareader.FieldCount; count++)
+            {
+               Output += datareader.GetValue(count) + " ,";
+            }
+            Output = Output.Substring(0, Output.Length - 1);
+            Output = Output + ":";
+         }
+         closeConnection();
+         if (Output != "") Output = Output.Substring(0, Output.Length - 1);
+         return Output;
+      }
+      public void updateProductForSaleById(string[] productDetails)
       {
          openConnection();
          SqlCommand cmd = new SqlCommand("EditProduct", conn);

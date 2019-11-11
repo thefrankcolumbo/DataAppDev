@@ -17,14 +17,15 @@ namespace AdminGUI
          setupConnection();
       }
 
-      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      /////////////////////////////// THIS DOESNT WORK ATM //////////////////////////////////////////////////////////////////////
+      public string searchForProductByFullId(string id)
+      {
+         return searchForProduct(id, "SelectOneProductFromId", "@id");
+      }
+
       public string searchForProductByPartialId(string partialId)
       {
-         return searchForProducts(partialId, "SearchForProductByIdLikness", "@id");
+         return searchForProduct(partialId, "SearchForProductByIdLikness", "@id");
       }
-      /////////////////////////////// THIS DOESNT WORK ATM //////////////////////////////////////////////////////////////////////
-      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       /// <summary>
       /// Returns a string of zero to many products, dependant on the search results.
@@ -42,9 +43,10 @@ namespace AdminGUI
       /// </returns>
       public string searchForProductByPartialName(string partialName)
       {
-         return searchForProducts(partialName, "SearchForProductByNameLikness", "@name");
+         return searchForProduct(partialName, "SearchForProductByNameLikness", "@name");
       }
       
+
       public void updateProductForSaleById(string[] productDetails)
       {
          openConnection();
@@ -54,7 +56,6 @@ namespace AdminGUI
          cmd.Parameters.AddWithValue("@ProdName", productDetails[1]);
          cmd.Parameters.AddWithValue("@OnSale", productDetails[2]);
          cmd.Parameters.AddWithValue("@ProdDescription", productDetails[3]);
-         cmd.Parameters.AddWithValue("@ProdQuantity", productDetails[4]);
          cmd.Parameters.AddWithValue("@MinStock", productDetails[5]);
          cmd.Parameters.AddWithValue("@PictFilePath", productDetails[6]);
          cmd.Parameters.AddWithValue("@RetPrice", productDetails[7]);
@@ -129,19 +130,34 @@ namespace AdminGUI
       /// each field of a product is seperated by a comma. 
       /// Fields are: Name, Quantity, MinimumStock. 
       /// </returns>
-      public string CurrentStockUnderMinimumOrderAmount()
+      public string viewCurrentStockUnderMinimumOrderAmount()
       {
          return getDataFromView("ViewAllProductsBelowMinimumStockLevels");
       }
 
-
-      private string searchForProducts(string partialString, string storedProcedure, string field)
+      //private string searchForProduct(int partialInt, string storedProcedure, string field)
+      //{
+      //   string Output;
+      //   openConnection();
+      //   SqlCommand cmd = new SqlCommand(storedProcedure, conn);
+      //   cmd.CommandType = CommandType.StoredProcedure;
+      //   cmd.Parameters.AddWithValue(field, partialInt);
+      //   Output = blah(cmd);
+      //   return Output;
+      //}
+      private string searchForProduct(string partialString, string storedProcedure, string field)
       {
-         string Output = "";
+         string Output;
          openConnection();
          SqlCommand cmd = new SqlCommand(storedProcedure, conn);
          cmd.CommandType = CommandType.StoredProcedure;
          cmd.Parameters.AddWithValue(field, partialString);
+         Output = blah(cmd);
+         return Output;
+      }
+      private string blah (SqlCommand cmd)
+      {
+         string Output = "";
          SqlDataReader datareader = cmd.ExecuteReader();
          while (datareader.Read())
          {

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace AdminGUI
    public partial class AdminView : Form
    {
       Controller controller;
+      Boolean update;
       public AdminView()
       {
          InitializeComponent();
@@ -32,7 +34,7 @@ namespace AdminGUI
          //3. admin has used search panel to select a product from the DB
          MessageBox.Show("SEARCH PANEL FUNCTIONALITY REQUIRED WITH RETURN OBJECT");
          //4. display product results in text boxes
-         setPnlViewingProductFieldsFromDatabase();
+         //setPnlViewingProductFieldsFromDatabase();
          //5. set required text boxes to non read only
          // not required
          //6. set action button text
@@ -43,6 +45,7 @@ namespace AdminGUI
 
       private void btnViewOrEditProductDetails_Click(object sender, MouseEventArgs e)
       {
+         update = false;
          //1. change button / panel visability to suit required admin function
          hideMenuButtons("view or edit product details");
          //2. open the search panel
@@ -50,7 +53,7 @@ namespace AdminGUI
          //3. admin has used search panel to select a product from the DB
          MessageBox.Show("SEARCH PANEL FUNCTIONALITY REQUIRED WITH RETURN OBJECT");
          //4. display product results in text boxes
-         setPnlViewingProductFieldsFromDatabase();
+         //setPnlViewingProductFieldsFromDatabase();
          //5. set action button text
          setPnlViewingProductActionBtnText("Save changes");
          //6. set required text boxes to non read only
@@ -76,7 +79,7 @@ namespace AdminGUI
       {
          hideMenuButtons("view current stock levels");
          getCurrentStockLevels();
-         listVCurrentOpenOrders.Visible = true;
+         listCurrentOpenOrders.Visible = true;
       }
 
       private void btnOrderStockReport_Click(object sender, MouseEventArgs e)
@@ -84,21 +87,21 @@ namespace AdminGUI
          
          hideMenuButtons("list of products currently below the minimum stock number");
          getCurrentStockUnderMinimumOrderAmount();
-         listVCurrentOpenOrders.Visible = true;
+         listCurrentOpenOrders.Visible = true;
       }
 
       private void btnViewStockForSale_Click(object sender, MouseEventArgs e)
       {
          hideMenuButtons("view all products available for sale");
          getCurrentStockMarkedAsForSale();
-         listVCurrentOpenOrders.Visible = true;
+         listCurrentOpenOrders.Visible = true;
       }
 
       private void btnViewProductsNotForSale_Click(object sender, MouseEventArgs e)
       {
          hideMenuButtons("view all products not available for sale");
          getCurrentStockMarkedAsNotForSale();
-         listVCurrentOpenOrders.Visible = true;
+         listCurrentOpenOrders.Visible = true;
       }
 
       private void btnStartPage_Click(object sender, MouseEventArgs e)
@@ -109,8 +112,6 @@ namespace AdminGUI
       {
          pnlSearchPanel.Visible = true;
          lblSearchTitleLabel.Visible = true;
-         MessageBox.Show("MUST ADD CODE ENABLE SEARCH AND FILL LIST BOX. ON USER " +
-            "SELECTION PRODUCT DETAILS MUST APPEAR ON OTHER PANEL");
          //populateListBox();
       }
       private void populateListBox(string output)
@@ -132,15 +133,26 @@ namespace AdminGUI
             listBoxSearchPanel.Items.Add((listBoxLineOutput));
          }
          listBoxSearchPanel.EndUpdate();
+         
       }
       private void listBoxSearchPanel_DoubleClick(object sender, EventArgs e)
       {
          // Gets the selected item 
-         string blah = listBoxSearchPanel.SelectedItem.ToString();
-         // holder method
-         setPnlViewingProductFieldsFromDatabase();
+         string adminChoice = listBoxSearchPanel.SelectedItem.ToString();
+         // Get id from string
+         string id = getIdFromString(adminChoice);
+         // get product details
+         string productString = controller.searchForProductByFullId(id);
+         // put product details into screen form
+         setPnlViewingProductFieldsFromDatabase(productString);
          // make panel visable
          pnlViewingProduct.Visible = true;
+         update = true;
+      }
+      private string getIdFromString(string input)
+      {
+         Regex digitsOnly = new Regex(@"[^\d]");
+         return digitsOnly.Replace(input, "");
       }
       private void resetToStartPage()
       {
@@ -156,9 +168,9 @@ namespace AdminGUI
          lblMainAdminView.Text = "Current Open Orders";
          pnlSearchPanel.Visible = false;
          pnlSearchPanel.Visible = false;
-         listVCurrentOpenOrders.Visible = true;
+         listCurrentOpenOrders.Visible = true;
          lblSearchTitleLabel.Visible = false;
-         listVCurrentOpenOrders.Visible = true;
+         listCurrentOpenOrders.Visible = true;
          pnlViewingProduct.Visible = false;
          setPnlViewingProductAllFieldsToReadOnly();
       }
@@ -174,7 +186,7 @@ namespace AdminGUI
          btnViewProductsNotForSale.Visible = false;
          btnViewStockLevels.Visible = false;
          lblMainAdminView.Text = mainAdminViewlbl;
-         listVCurrentOpenOrders.Visible = false;
+         listCurrentOpenOrders.Visible = false;
       }
       private void setPnlViewingProductAllFieldsToReadOnly()
       {
@@ -202,21 +214,22 @@ namespace AdminGUI
          txtViewingProductProductPrice.ReadOnly = false;
          txtViewingProductProductStock.ReadOnly = false;
       }
-      private void setPnlViewingProductFieldsFromDatabase()
+      private void setPnlViewingProductFieldsFromDatabase(string input)
       {
-         txtViewingProductDescription.Text = "pulled from database";
-         txtViewingProductForSale.Text = "pulled from database";
-         txtViewingProductProductCategory.Text = "pulled from database";
-         txtViewingProductProductMinStock.Text = "pulled from database";
-         txtViewingProductProductName.Text = "pulled from database";
-         txtViewingProductProductPrice.Text = "pulled from database";
-         txtViewingProductProductStock.Text = "pulled from database";
-         txtViewingProductProductID.Text = "pulled from database";
-         txtViewingProductNumberSold.Text = "pulled from database";
+         string[] layer01 = input.Split(',');
+         txtViewingProductDescription.Text = layer01[3];
+         txtViewingProductForSale.Text = layer01[2];
+         txtViewingProductProductCategory.Text = layer01[9];
+         txtViewingProductProductMinStock.Text = layer01[5];
+         txtViewingProductProductName.Text = layer01[1];
+         txtViewingProductProductPrice.Text = layer01[8];
+         txtViewingProductProductStock.Text = layer01[4];
+         txtViewingProductProductID.Text = layer01[0];
+         txtViewingProductNumberSold.Text = layer01[6];
       }
       private void txtSearchPanelProductID_TextChange(object sender, EventArgs e)
       {
-         string output = controller.searchForProductByPartialId(txtSearchPanelProductName.Text);
+         string output = controller.searchForProductByPartialId(txtSearchPanelProductID.Text);
          if (output != "") populateListBox(output);
          else listBoxSearchPanel.Items.Clear();
       }
@@ -229,46 +242,46 @@ namespace AdminGUI
       }
       private void getOpenOrders()
       {
-         listVCurrentOpenOrders.Items.Clear();
-         listVCurrentOpenOrders.Items.Add("OpenOrders");
-         listVCurrentOpenOrders.Items.Add("OpenOrders");
-         listVCurrentOpenOrders.Items.Add("OpenOrders");
-         listVCurrentOpenOrders.Items.Add("OpenOrders");
-         listVCurrentOpenOrders.Items.Add("OpenOrders");
-         listVCurrentOpenOrders.Items.Add("OpenOrders");
-         listVCurrentOpenOrders.Items.Add("OpenOrders");
-         listVCurrentOpenOrders.Items.Add("OpenOrders");
+         listCurrentOpenOrders.Items.Clear();
+         listCurrentOpenOrders.Items.Add("OpenOrders");
+         listCurrentOpenOrders.Items.Add("OpenOrders");
+         listCurrentOpenOrders.Items.Add("OpenOrders");
+         listCurrentOpenOrders.Items.Add("OpenOrders");
+         listCurrentOpenOrders.Items.Add("OpenOrders");
+         listCurrentOpenOrders.Items.Add("OpenOrders");
+         listCurrentOpenOrders.Items.Add("OpenOrders");
+         listCurrentOpenOrders.Items.Add("OpenOrders");
       }
       private void getCurrentStockLevels()
       {
-         listVCurrentOpenOrders.Items.Clear();
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
-         listVCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Clear();
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
+         listCurrentOpenOrders.Items.Add("CurrentStockLevel");
       }
       private void getCurrentStockUnderMinimumOrderAmount()
       {
-         listVCurrentOpenOrders.Items.Clear();
-         string output = controller.CurrentStockUnderMinimumOrderAmount();
+         listCurrentOpenOrders.Items.Clear();
+         string output = controller.viewCurrentStockUnderMinimumOrderAmount();
          outputSQLViewData(output);
       }
       private void getCurrentStockMarkedAsForSale()
       {
-         listVCurrentOpenOrders.Items.Clear();
+         listCurrentOpenOrders.Items.Clear();
          string output = controller.viewStockForSale();
          outputSQLViewData(output);
       }
       private void getCurrentStockMarkedAsNotForSale()
       {
-         listVCurrentOpenOrders.Items.Clear();
+         listCurrentOpenOrders.Items.Clear();
          string output = controller.viewStockNotForSale();
          outputSQLViewData(output);
       }
@@ -280,7 +293,7 @@ namespace AdminGUI
             string[] layer02 = product.Split(',');
             for (int count = 0; count < layer02.Length; count++)
             {
-               listVCurrentOpenOrders.Items.Add(layer02[count]);
+               listCurrentOpenOrders.Items.Add(layer02[count]);
             }
             Array.Clear(layer02, 0, layer02.Length);
          }
@@ -288,10 +301,10 @@ namespace AdminGUI
       private void btnViewingProductActionButton_Click(object sender, EventArgs e)
       {
          String[] productDetails = getDataFromPnlViewingProduct();
-         controller.AddNewProductForSale(productDetails);
+         if (!update) controller.AddNewProductForSale(productDetails);
+         if (update) controller.updateProductForSaleById(productDetails);
          resetToStartPage();
       }
-
       private void btnViewingProductCancelButton_Click(object sender, MouseEventArgs e)
       {
          resetToStartPage();
@@ -307,6 +320,7 @@ namespace AdminGUI
          productDetails[5] = txtViewingProductProductMinStock.Text;
          productDetails[6] = "";
          productDetails[7] = txtViewingProductProductPrice.Text;
+         productDetails[8] = txtViewingProductProductID.Text;
          return productDetails;
       }
    }

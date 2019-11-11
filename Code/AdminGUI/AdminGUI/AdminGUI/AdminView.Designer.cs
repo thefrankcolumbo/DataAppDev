@@ -59,7 +59,7 @@
          this.lblViewingProductProductID = new System.Windows.Forms.Label();
          this.txtViewingProductProductName = new System.Windows.Forms.TextBox();
          this.lblViewingProductProductName = new System.Windows.Forms.Label();
-         this.listVCurrentOpenOrders = new System.Windows.Forms.ListView();
+         this.listCurrentOpenOrders = new System.Windows.Forms.ListView();
          this.lblMainAdminView = new System.Windows.Forms.Label();
          this.btnStartPage = new System.Windows.Forms.Button();
          this.pnlSearchPanel = new System.Windows.Forms.Panel();
@@ -149,7 +149,7 @@
          // 
          this.pnlMainAdminView.BackColor = System.Drawing.SystemColors.ActiveBorder;
          this.pnlMainAdminView.Controls.Add(this.pnlViewingProduct);
-         this.pnlMainAdminView.Controls.Add(this.listVCurrentOpenOrders);
+         this.pnlMainAdminView.Controls.Add(this.listCurrentOpenOrders);
          this.pnlMainAdminView.Location = new System.Drawing.Point(231, 43);
          this.pnlMainAdminView.Name = "pnlMainAdminView";
          this.pnlMainAdminView.Size = new System.Drawing.Size(264, 473);
@@ -369,14 +369,14 @@
          this.lblViewingProductProductName.TabIndex = 0;
          this.lblViewingProductProductName.Text = "Product Name";
          // 
-         // listVCurrentOpenOrders
+         // listCurrentOpenOrders
          // 
-         this.listVCurrentOpenOrders.HideSelection = false;
-         this.listVCurrentOpenOrders.Location = new System.Drawing.Point(3, 3);
-         this.listVCurrentOpenOrders.Name = "listVCurrentOpenOrders";
-         this.listVCurrentOpenOrders.Size = new System.Drawing.Size(258, 467);
-         this.listVCurrentOpenOrders.TabIndex = 0;
-         this.listVCurrentOpenOrders.UseCompatibleStateImageBehavior = false;
+         this.listCurrentOpenOrders.HideSelection = false;
+         this.listCurrentOpenOrders.Location = new System.Drawing.Point(3, 3);
+         this.listCurrentOpenOrders.Name = "listCurrentOpenOrders";
+         this.listCurrentOpenOrders.Size = new System.Drawing.Size(258, 467);
+         this.listCurrentOpenOrders.TabIndex = 0;
+         this.listCurrentOpenOrders.UseCompatibleStateImageBehavior = false;
          // 
          // lblMainAdminView
          // 
@@ -515,7 +515,7 @@
       private System.Windows.Forms.Label lblSearchPanelProductName;
       private System.Windows.Forms.TextBox txtSearchPanelProductID;
       private System.Windows.Forms.Label lblSearchPanelProductID;
-      private System.Windows.Forms.ListView listVCurrentOpenOrders;
+      private System.Windows.Forms.ListView listCurrentOpenOrders;
       private System.Windows.Forms.Panel pnlViewingProduct;
       private System.Windows.Forms.Label lblViewingProductProductName;
       private System.Windows.Forms.TextBox txtViewingProductProductMinStock;

@@ -52,27 +52,24 @@ namespace AdminGUI
          cmd.ExecuteReader();
          closeConnection();
       }
-      public String viewStockNotForSale()
+      public string viewStockNotForSale()
       {
-         string data = getDataFromView("ViewAllProductsNotForSale");
-         return data;
+         return getDataFromView("ViewAllProductsNotForSale");
       }
-      public String viewStockForSale()
+      public string viewStockForSale()
       {
-         string data = getDataFromView("ViewAllProductsForSale");
-         return data;
+         return getDataFromView("ViewAllProductsForSale");
       }
       public string CurrentStockUnderMinimumOrderAmount()
       {
-         string data = getDataFromView("ViewAllProductsBelowMinimumStockLevels");
-         return data;
+         return getDataFromView("ViewAllProductsBelowMinimumStockLevels");
       }
       private string getDataFromView(string view)
       {
          openConnection();
          SqlCommand command;
          SqlDataReader datareader;
-         String sql, Output = "";
+         string sql, Output = "";
          sql = "SELECT * FROM " + view;
          command = new SqlCommand(sql, conn);
          datareader = command.ExecuteReader();

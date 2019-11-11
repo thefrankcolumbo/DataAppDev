@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
-//using static AdminGUI.ActionButtonENUM;
 
 namespace AdminGUI
 {
@@ -248,36 +247,22 @@ namespace AdminGUI
       {
          listVCurrentOpenOrders.Items.Clear();
          string output = controller.CurrentStockUnderMinimumOrderAmount();
-         string[] layer01 = output.Split(':');
-         foreach (var product in layer01)
-         {
-            string[] layer02 = product.Split(',');
-            for (int count = 0; count < layer02.Length; count ++)
-            {
-               listVCurrentOpenOrders.Items.Add(layer02[count]);
-            }
-            Array.Clear(layer02, 0, layer02.Length);
-         }
+         outputSQLViewData(output);
       }
       private void getCurrentStockMarkedAsForSale()
       {
          listVCurrentOpenOrders.Items.Clear();
          string output = controller.viewStockForSale();
-         string[] layer01 = output.Split(':');
-         foreach (var product in layer01)
-         {
-            string[] layer02 = product.Split(',');
-            for (int count = 0; count < layer02.Length; count++)
-            {
-               listVCurrentOpenOrders.Items.Add(layer02[count]);
-            }
-            Array.Clear(layer02, 0, layer02.Length);
-         }
+         outputSQLViewData(output);
       }
       private void getCurrentStockMarkedAsNotForSale()
       {
          listVCurrentOpenOrders.Items.Clear();
          string output = controller.viewStockNotForSale();
+         outputSQLViewData(output);
+      }
+      private void outputSQLViewData(string output)
+      {
          string[] layer01 = output.Split(':');
          foreach (var product in layer01)
          {
@@ -291,8 +276,6 @@ namespace AdminGUI
       }
       private void btnViewingProductActionButton_Click(object sender, EventArgs e)
       {
-         // perform data checks
-         // get data
          String[] productDetails = getDataFromPnlViewingProduct();
          controller.AddNewProductForSale(productDetails);
          resetToStartPage();
@@ -304,7 +287,6 @@ namespace AdminGUI
       }
       private string[] getDataFromPnlViewingProduct()
       {
-         //List<string> productDetails = new List<string>();
          string[] productDetails = new string[9];
          productDetails[0] = txtViewingProductProductCategory.Text;
          productDetails[1] = txtViewingProductProductName.Text;

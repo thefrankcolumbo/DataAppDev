@@ -22,7 +22,6 @@ namespace AdminGUI
          getOpenOrders();
          resetToStartPage();
          controller = new Controller();
-         controller.testprocedure();
       }
 
       private void btnWithdrawAddProductForSale_Click(object sender, MouseEventArgs e)
@@ -76,18 +75,15 @@ namespace AdminGUI
       }
       private void btnViewStockLevels_Click(object sender, MouseEventArgs e)
       {
-         //1. change button / panel visability to suit required admin function
          hideMenuButtons("view current stock levels");
-         MessageBox.Show("MUST ADD CODE TO VIEW CURRENT STOCK LEVELS");
          getCurrentStockLevels();
          listVCurrentOpenOrders.Visible = true;
       }
 
       private void btnOrderStockReport_Click(object sender, MouseEventArgs e)
       {
-         //1. change button / panel visability to suit required admin function
+         
          hideMenuButtons("list of products currently below the minimum stock number");
-         MessageBox.Show("MUST ADD CODE TO CHANGE VIEW IAW STORYBOARD");
          getCurrentStockUnderMinimumOrderAmount();
          listVCurrentOpenOrders.Visible = true;
       }
@@ -251,16 +247,17 @@ namespace AdminGUI
       private void getCurrentStockUnderMinimumOrderAmount()
       {
          listVCurrentOpenOrders.Items.Clear();
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
-         listVCurrentOpenOrders.Items.Add("CurrentStockUnderMinimumOrderAmount");
+         string output = controller.CurrentStockUnderMinimumOrderAmount();
+         string[] layer01 = output.Split(':');
+         foreach (var product in layer01)
+         {
+            string[] layer02 = product.Split(',');
+            for (int count = 0; count < layer02.Length; count ++)
+            {
+               listVCurrentOpenOrders.Items.Add(layer02[count]);
+            }
+            Array.Clear(layer02, 0, layer02.Length);
+         }
       }
       private void getCurrentStockMarkedAsForSale()
       {
@@ -270,17 +267,11 @@ namespace AdminGUI
          foreach (var product in layer01)
          {
             string[] layer02 = product.Split(',');
-
-            listVCurrentOpenOrders.Items.Add(layer02[0]);
-            listVCurrentOpenOrders.Items.Add(layer02[1]);
-            listVCurrentOpenOrders.Items.Add(layer02[2]);
-            listVCurrentOpenOrders.Items.Add(layer02[3]);
-            listVCurrentOpenOrders.Items.Add(layer02[4]);
-            listVCurrentOpenOrders.Items.Add(layer02[5]);
-            listVCurrentOpenOrders.Items.Add(layer02[6]);
-            listVCurrentOpenOrders.Items.Add(layer02[7]);
-            listVCurrentOpenOrders.Items.Add(layer02[8]);
-            Array.Clear(layer02, 0, 8);
+            for (int count = 0; count < layer02.Length; count++)
+            {
+               listVCurrentOpenOrders.Items.Add(layer02[count]);
+            }
+            Array.Clear(layer02, 0, layer02.Length);
          }
       }
       private void getCurrentStockMarkedAsNotForSale()
@@ -291,17 +282,11 @@ namespace AdminGUI
          foreach (var product in layer01)
          {
             string[] layer02 = product.Split(',');
-
-            listVCurrentOpenOrders.Items.Add(layer02[0]);
-            listVCurrentOpenOrders.Items.Add(layer02[1]);
-            listVCurrentOpenOrders.Items.Add(layer02[2]);
-            listVCurrentOpenOrders.Items.Add(layer02[3]);
-            listVCurrentOpenOrders.Items.Add(layer02[4]);
-            listVCurrentOpenOrders.Items.Add(layer02[5]);
-            listVCurrentOpenOrders.Items.Add(layer02[6]);
-            listVCurrentOpenOrders.Items.Add(layer02[7]);
-            listVCurrentOpenOrders.Items.Add(layer02[8]);
-            Array.Clear(layer02, 0, 8);
+            for (int count = 0; count < layer02.Length; count++)
+            {
+               listVCurrentOpenOrders.Items.Add(layer02[count]);
+            }
+            Array.Clear(layer02, 0, layer02.Length);
          }
       }
       private void btnViewingProductActionButton_Click(object sender, EventArgs e)

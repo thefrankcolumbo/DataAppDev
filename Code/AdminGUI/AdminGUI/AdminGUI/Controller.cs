@@ -54,70 +54,39 @@ namespace AdminGUI
       }
       public String viewStockNotForSale()
       {
-         openConnection();
-         SqlCommand command;
-         SqlDataReader datareader;
-         String sql, Output = "";
-         sql = "SELECT * FROM ViewAllProductsNotForSale";
-         command = new SqlCommand(sql, conn);
-         datareader = command.ExecuteReader();
-         while (datareader.Read())
-         {
-            Output = Output +
-               datareader.GetValue(0) + " , " +
-               datareader.GetValue(1) + " , " +
-               datareader.GetValue(2) + " , " +
-               datareader.GetValue(3) + " , " +
-               datareader.GetValue(4) + " , " +
-               datareader.GetValue(5) + " , " +
-               datareader.GetValue(6) + " , " +
-               datareader.GetValue(7) + " , " +
-               datareader.GetValue(8) + " : ";
-         }
-         Output = Output.Substring(0, Output.Length - 2);
-         closeConnection();
-         return Output;
+         string data = getDataFromView("ViewAllProductsNotForSale");
+         return data;
       }
       public String viewStockForSale()
       {
+         string data = getDataFromView("ViewAllProductsForSale");
+         return data;
+      }
+      public string CurrentStockUnderMinimumOrderAmount()
+      {
+         string data = getDataFromView("ViewAllProductsBelowMinimumStockLevels");
+         return data;
+      }
+      private string getDataFromView(string view)
+      {
          openConnection();
          SqlCommand command;
          SqlDataReader datareader;
          String sql, Output = "";
-         sql = "SELECT * FROM ViewAllProductsForSale";
+         sql = "SELECT * FROM " + view;
          command = new SqlCommand(sql, conn);
          datareader = command.ExecuteReader();
          while (datareader.Read())
          {
-            Output = Output +
-               datareader.GetValue(0) + " , " +
-               datareader.GetValue(1) + " , " +
-               datareader.GetValue(2) + " , " +
-               datareader.GetValue(3) + " , " +
-               datareader.GetValue(4) + " , " +
-               datareader.GetValue(5) + " , " +
-               datareader.GetValue(6) + " , " +
-               datareader.GetValue(7) + " , " +
-               datareader.GetValue(8) + " : ";
+            for(int count = 0; count < datareader.FieldCount; count++)
+            {
+               Output = Output + datareader.GetValue(count) + " ,";
+            }
+            Output = Output.Substring(0, Output.Length - 1);
+            Output = Output + ":";
          }
-         Output = Output.Substring(0, Output.Length - 2);
          closeConnection();
          return Output;
-      }
-      public void testprocedure()
-      {
-         openConnection();
-         SqlCommand cmd = new SqlCommand("GetAllProductsForSale", conn);
-         cmd.CommandType = CommandType.StoredProcedure;
-         using (SqlDataReader rdr = cmd.ExecuteReader())
-         {
-            // iterate through results, printing each to console
-            while (rdr.Read())
-            {
-               Console.WriteLine("Product: {0,-35} Total: {1,2}", rdr["Name"], rdr["Id"]);
-            }
-         }
-         closeConnection();
       }
       private void openConnection()
       {
